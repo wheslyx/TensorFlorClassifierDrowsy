@@ -16,7 +16,7 @@ python3 xml_a_csv.py --inputs=img_test --output=test #generate xml files of test
 python3 xml_a_csv.py --inputs=img_entrenamiento --output=entrenamiento  #generate xml files of training Cellphone images
 #  pip3 install pandas in python venv
 
-python csv_a_tf.py --csv_input=CSV/test.csv --output_path=TFRecords/test.record --images=images #generate test cellphone TF file in TFRecords folder
+python csv_a_tf.py --csv_input=CSV/test.csv --output_path=TFRecords/test.record --images=images #generate test cellphone TF file in TFRecords folder, login in Virtual Environment
 python csv_a_tf.py --csv_input=CSV/entrenamiento.csv --output_path=TFRecords/entrenamiento.record --images=images #generate training cellphone TF file in TFRecords folder
 python object_detection/train.py --logtostderr --train_dir=train --pipeline_config_path=modelo/faster_rcnn_resnet101_coco.config # train classifier algorithm for cellphone model using Tensor Flow. Checkpoints are stored in deteccion_objetos/train
 python object_detection/export_inference_graph.py --input_type image_tensor --pipeline_config_path modelo/faster_rcnn_resnet101_coco.config --trained_checkpoint_prefix train/model.ckpt-585 --output_directory modelo_congelado # Generates frozen model in modelo_congelado/frozen_inference_graph.pb to be used in evaluation of the algorithm
